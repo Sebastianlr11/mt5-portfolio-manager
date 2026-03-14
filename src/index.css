@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    @apply bg-background text-text antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 10% -10%, rgba(0, 214, 143, 0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 90% 110%, rgba(74, 142, 245, 0.06) 0%, transparent 60%);
+  }
+
+  /* Tabular numbers for financial data */
+  .tabular { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────────────────────── */
+.custom-scrollbar { scrollbar-width: thin; scrollbar-color: #1e293b transparent; }
+.custom-scrollbar::-webkit-scrollbar { width: 4px; height: 4px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply rounded-full;
+  background: rgba(255,255,255,0.08);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.15); }
+
+/* ── Stat cards ────────────────────────────────────────────────────────────── */
+.stat-card {
+  @apply relative bg-surface2 rounded-2xl p-5 overflow-hidden transition-all duration-200;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);
+}
+.stat-card::before {
+  content: '';
+  @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+  background: radial-gradient(ellipse at 50% 0%, rgba(0,214,143,0.06) 0%, transparent 70%);
+}
+.stat-card:hover::before { @apply opacity-100; }
+.stat-card:hover {
+  border-color: rgba(0,214,143,0.15);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,214,143,0.08), inset 0 1px 0 rgba(255,255,255,0.06);
+  transform: translateY(-1px);
+}
+
+/* ── Chart container ───────────────────────────────────────────────────────── */
+.chart-panel {
+  @apply relative w-full bg-surface rounded-2xl overflow-hidden;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.03);
+}
+
+/* ── Glass card ────────────────────────────────────────────────────────────── */
+.glass {
+  background: rgba(12, 20, 34, 0.8);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.07);
+}
+
+/* ── Glow text ─────────────────────────────────────────────────────────────── */
+.glow-green { text-shadow: 0 0 20px rgba(0, 214, 143, 0.5); }
+.glow-red   { text-shadow: 0 0 20px rgba(239, 68, 68, 0.5); }
+
+/* ── Recharts overrides ────────────────────────────────────────────────────── */
+.recharts-brush { border-radius: 4px; }
+.recharts-brush-traveller rect { fill: #2d4060; stroke: none; rx: 3; }
+.recharts-brush-texts text { fill: #64748b !important; font-size: 10px !important; }
+.recharts-legend-wrapper { padding-bottom: 4px !important; }
+.recharts-tooltip-wrapper { outline: none !important; }

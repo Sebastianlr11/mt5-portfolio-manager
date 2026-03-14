@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \":*)",
+      "Bash(python -c \":*)",
+      "Bash(npx tsc --noEmit)",
+      "Bash(powershell -Command \":*)",
+      "Bash(powershell.exe -ExecutionPolicy Bypass -File \"c:\\\\Users\\\\PC\\\\Desktop\\\\extract_out_rows.ps1\")",
+      "Bash(powershell.exe -ExecutionPolicy Bypass -File \"c:\\\\Users\\\\PC\\\\Desktop\\\\developer\\\\Gestor De Portfolio\\\\extract_trades.ps1\")",
+      "Bash(powershell.exe -Command \"Get-Content ''c:\\\\Users\\\\PC\\\\Desktop\\\\developer\\\\Gestor De Portfolio\\\\EjemploHTML\\\\*.html'' -Encoding Unicode | Select-Object -First 300\")",
+      "Bash(powershell.exe -Command \"Get-Content ''c:\\\\Users\\\\PC\\\\Desktop\\\\developer\\\\Gestor De Portfolio\\\\EjemploHTML\\\\*.html'' -Encoding Unicode | Select-String -Pattern ''>in<'' | Select-Object -First 20\")",
+      "Bash(powershell.exe -Command \"Get-Content ''c:\\\\Users\\\\PC\\\\Desktop\\\\developer\\\\Gestor De Portfolio\\\\EjemploHTML\\\\*.html'' -Encoding Unicode | Select-String -Pattern ''>out<'' | Select-Object -First 10\")",
+      "Bash(powershell.exe -File:*)"
+    ]
+  }
+}
